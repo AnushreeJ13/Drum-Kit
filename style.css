@@ -1,53 +1,86 @@
+/* Full-screen background with a parallax effect */
 html {
-    font-size: 10px;
-    background: url(background\ \(1\).jpg) bottom center;
-    background-size: cover;
-  }
-  body,html {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-  }
-  
-  .keys {
-    display: flex;
-    flex: 1;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-  }
-  
+  font-size: 10px;
+  background: url(drum2.jpeg) no-repeat center center fixed;
+  background-size: cover;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+/* Centering keys and aligning them slightly above the bottom */
+.keys {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 5%; /* Adjusted for positioning */
+}
+
+/* Styling each key */
+.key {
+  border: 0.4rem solid rgba(156, 128, 30, 0.774);
+  border-radius: 1rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem 0.5rem;
+  transition: all 0.2s ease;
+  width: 10rem;
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.6); /* Darker background for readability */
+  text-shadow: 0 0 0.5rem black;
+  opacity: 0.85;
+}
+
+.playing {
+  transform: scale(1.1);
+  border-color: #ffc600;
+  box-shadow: 0 0 1.5rem #ffc600;
+}
+
+/* Hover effect */
+.key:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 1.5rem #ffc600;
+}
+
+/* Styling the kbd and sound elements */
+kbd {
+  display: block;
+  font-size: 4rem;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #ffc600;
+}
+
+/* Accessibility: focus outline */
+.key:focus {
+  outline: 2px solid #ffc600;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
   .key {
-    border: .4rem solid black;
-    border-radius: .5rem;
-    margin: 1rem;
-    font-size: 1.5rem;
-    padding: 1rem .5rem;
-    transition: all .07s ease;
-    width: 10rem;
-    text-align: center;
-    color: white;
-    background: rgba(0,0,0,0.4);
-    text-shadow: 0 0 .5rem black;
-    border-radius: 1rem;
-    border: .4rem solid rgba(255, 200, 0, 0.774);
-    opacity: 60;
+    font-size: 1rem;
+    padding: 0.5rem 0.25rem;
+    width: 8rem;
   }
-  
-  .playing {
-    transform: scale(1.1);
-    border-color: #ffc600;
-    box-shadow: 0 0 1rem #ffc600;
-  }
-  
+
   kbd {
-    display: block;
-    font-size: 4rem;
+    font-size: 2.5rem;
   }
-  
+
   .sound {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: .1rem;
-    color: #ffc600;
+    font-size: 1rem;
   }
+}
